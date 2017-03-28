@@ -1,0 +1,12 @@
+TODO:
+- block "NOW" spamming
+- call during local business hours M-F
+- record calls and send them to user?
+- store successful call count for badges/leaderboards/streaks
+- track call analytics
+  - identify good/bad times to call certain offices
+  - identify reps most likely to answer
+- ask about specific issues
+  - identify critical times for those issues, and committee offices to call
+- organize mass-calls (prompt for user opt-in) where many callers call at once
+

@@ -17,3 +17,7 @@ Deploy to App Engine:
 ```
 gcloud app deploy *.yaml --version=1
 ```
+
+
+
+**This project is not owned by or affiliated with Google, Inc., in any way. It is wholly owned and operated by me.**

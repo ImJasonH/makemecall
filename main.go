@@ -33,6 +33,11 @@ const (
 - Be nice. The person you're talking to has a hard job.
 - Call every day so they remember you.
 Text QUIT any time to stop.`
+
+	// These should come from config.go
+	tok          = ""
+	sid          = ""
+	twilioNumber = ""
 )
 
 var nytz = mustLoadLocation()
@@ -46,12 +51,20 @@ func mustLoadLocation() *time.Location {
 }
 
 func init() {
+	http.HandleFunc("/incomingtext", func(w http.ResponseWriter, r *http.Request) {
+		respond(appengine.NewContext(r), w, &Response{
+			Verbs: []Verb{&SMS{Text: "Make Me Call is no longer available. See http://makemecall.org for more information. Thanks!"}},
+		})
+	})
+
+	/* Old Handlers.
 	http.HandleFunc("/incomingcall", incomingCall) // POSTed when someone calls.
 	http.HandleFunc("/incomingtext", incomingText) // POSTed when someone texts.
 	http.HandleFunc("/connect", connect)           // POSTed when user picks up call, Dials the other number in response.
 	http.HandleFunc("/callstatus", callStatus)     // POSTed when call status changes.
 
 	http.HandleFunc("/cron", cron)
+	*/
 }
 
 func connect(w http.ResponseWriter, r *http.Request) {
